@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/comment_db
+    url: jdbc:postgresql://localhost:5432/stream_comment_db
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
