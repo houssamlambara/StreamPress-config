@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/users/**,/api/auth/**
+        - id: article-service
+          uri: lb://ARTICLE-SERVICE
+          predicates:
+            - Path=/api/articles/**
+        - id: comment-service
+          uri: lb://COMMENT-SERVICE
+          predicates:
+            - Path=/api/comments/**
+        - id: notification-service
+          uri: lb://NOTIFICATION-SERVICE
+          predicates:
+            - Path=/api/notifications/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
